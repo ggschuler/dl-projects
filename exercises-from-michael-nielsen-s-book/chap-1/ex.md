@@ -1,0 +1,8 @@
+# Sigmoid neurons simulating perceptrons, pt. I-II
+**I**. Suppose we take all the weights and biases in a network of perceptrons, and multiply them by a positive constant, $c>0$. Show that the behaviour of the network doesn't change.
+
+> If we choose the sigmoid (logistic) function as our activation function, the output of every neuron will be a number between 0 and 1. This happens because the sigmoid function works by transforming any real number into a number between 0 and 1, by means of the following equation: $$\sigma = (w⋅x+b) = \frac{1}{1+e^{-(w⋅x+b)}}$$
+
+**II**. Suppose we have the same setup as the last problem - a network of perceptrons. Suppose also that the overall input to the network of perceptrons has been chosen. We won't need the actual input value, we just need the input to have been fixed. Suppose the weights and biases are such that $w⋅x+b≠0$ for the input $x$ to any particular perceptron in the network. Now replace all the perceptrons in the network by sigmoid neurons, and multiply the weights and biases by a positive constant $c>0$. Show that in the limit as $c→∞$ the behaviour of this network of sigmoid neurons is exactly the same as the network of perceptrons. How can this fail when $w⋅x+b=0$ for one of the perceptrons?
+
+> Given that $w⋅x+b\ne0$ is always true, for any $w$, $x$, and $b$, it follows that the sigmoid activation would always render an output that goes from 0 to 1. Then, no matter how large the multiplier $c$ is, the 0-1 interval would remain. However, if we force $w⋅x+b=0$ then the sigmoid function output approaches $\frac{1}{2}$, since: $$\sigma = (0) = \frac{1}{1+e^{-0)}} = \frac{1}{1+1} = \frac{1}{2}$$
