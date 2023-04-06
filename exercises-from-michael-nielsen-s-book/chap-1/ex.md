@@ -49,21 +49,21 @@
 >
 > Consider first the matrix $w$. For each row (decimal digit), we want the weights to transform the output from a smoothed 0-1 interval to a step 0-1. Notice how the only binary numbers that start with 1 are 8 and 9. So, we can set the first row of $w$ to be $[0,0,0,0,0,0,0,0,1,1]$, so that the fourth-layer's first neuron will only be activated if the last 2 (8 and 9 digits) are activated in the third layer. Following the same _rationale_, the full $w$ matrix is as follows:
 >
->$$
->w =
->\begin{bmatrix}
->0 & 0 & 0 & 0 \\
->0 & 0 & 0 & 1 \\
->0 & 0 & 1 & 0 \\
->0 & 0 & 1 & 1 \\
->0 & 1 & 0 & 0 \\
->0 & 1 & 0 & 1 \\
->0 & 1 & 1 & 0 \\
->0 & 1 & 1 & 1 \\
->1 & 0 & 0 & 0 \\
->1 & 0 & 0 & 1 \\
->
->\end{bmatrix}
->$$
+> $$
+> w =
+> \begin{bmatrix}
+> 0 & 0 & 0 & 0 \\
+> 0 & 0 & 0 & 1 \\
+> 0 & 0 & 1 & 0 \\
+> 0 & 0 & 1 & 1 \\
+> 0 & 1 & 0 & 0 \\
+> 0 & 1 & 0 & 1 \\
+> 0 & 1 & 1 & 0 \\
+> 0 & 1 & 1 & 1 \\
+> 1 & 0 & 0 & 0 \\
+> 1 & 0 & 0 & 1 \\
+> 
+> \end{bmatrix}
+> $$
 >
 > Additionaly, for simplicity, the biases can be set to 0, since we're using a step function as activation and the weight matrix can do all the job.
