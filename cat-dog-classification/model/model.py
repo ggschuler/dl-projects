@@ -114,7 +114,7 @@ model.compile(
     loss="binary_crossentropy",
     metrics=["accuracy"],
 )
-model.fit(
+model.fit( 
     train_ds,
     epochs=epochs,
     callbacks=callbacks,
