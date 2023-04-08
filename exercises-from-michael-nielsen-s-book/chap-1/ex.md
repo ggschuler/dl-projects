@@ -67,3 +67,34 @@
 > $$
 >
 > Additionaly, for simplicity, the biases can be set to 0, since we're using a step function as activation and the weight matrix can do all the job.
+
+## Gradient descent
+
+**IV**.  "Indeed, there's even a sense in which gradient descent is the optimal strategy for searching for a minimum. Let's suppose that we're trying to make a move $Δv$ in position so as to decrease $C$ as much as possible. This is equivalent to minimizing $ΔC≈∇C⋅Δv$. We'll constrain the size of the move so that $∥Δv∥=ϵ$ for some small fixed $ϵ>0$. In other words, we want a move that is a small step of a fixed size, and we're trying to find the movement direction which decreases $C$ as much as possible. It can be proved that the choice of $Δv$ which minimizes $∇C⋅Δv$ is $Δv=−η∇C$, where $η=ϵ/∥∇C∥$ is determined by the size constraint $∥Δv∥=ϵ$. So gradient descent can be viewed as a way of taking small steps in the direction which does the most to immediately decrease $C$."
+
+Prove the assertion of the last paragraph. Hint: If you're not already familiar with the Cauchy-Schwarz inequality, you may find it helpful to familiarize yourself with it.
+
+> The Cauchy-Schwarz inequality asserts that for any two vectors $\bold{v}$ and $\bold{u}$ in n-dimensional space, it is true that:
+>
+>$$|u \cdot v| \le ||u||||v|| $$
+>
+> In our case, the vectors of interest are $\Delta v$ and $\nabla C$. We then have:
+>
+>$$\nabla C \cdot \Delta v \le ||\nabla C||||\Delta v||$$
+>
+> which implies that
+>
+>$$||\nabla C||||\Delta v|| \ge \nabla C \cdot \Delta v \ge -(||\nabla C||||\Delta v||)$$
+>
+>and since we're assuming that $∥Δv∥=ϵ$, it is true that
+>
+>$$ϵ||\nabla C|| \ge \nabla C \cdot \Delta v \ge -ϵ||\nabla C||$$
+>
+>which is to say that the inner product of the gradient vector and the displacement vector is bounded between negative and positive $ϵ||\nabla C||$.
+>
+>the inequality is saturated when $\Delta v$ is a scalar multilple of $\nabla C$, such as when $\Delta v = -η\nabla C$ for some scalar η. Assume that $\Delta v = -η\nabla C$, then $\nabla C\cdot\Delta v = -η||\nabla C||^2$. The magnitude of $\nabla C \cdot \Delta v$ is maximized when η is the negative of the ratio of the magnitudes of $\nabla C$ and $\Delta v$, which is $-ϵ/||\nabla C||$.
+
+**V**. I explained gradient descent when C is a function of two variables, and when it's a function of more than two variables. What happens when C is a function of just one variable? Can you provide a geometric interpretation of what gradient descent is doing in the one-dimensional case?
+
+> When gradient descent is applied onto one-variable functions, the curve describing the function may have a number of valleys corresponding to its degree ($x^2, x^3,...,x^n$). The minimum cost will be the valley whose value is the lesser. Depending on which random point of the function that you start computing the gradient, you might find different values for the minimum, despite the function having a true minimum.
+
