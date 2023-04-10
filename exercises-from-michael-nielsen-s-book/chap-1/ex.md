@@ -98,3 +98,23 @@ Prove the assertion of the last paragraph. Hint: If you're not already familiar 
 
 > When gradient descent is applied onto one-variable functions, the curve describing the function may have a number of valleys corresponding to its degree ($x^2, x^3,...,x^n$). The minimum cost will be the valley whose value is the lesser. Depending on which random point of the function that you start computing the gradient, you might find different values for the minimum, despite the function having a true minimum.
 
+## Mini batches
+
+**VI**. An extreme version of gradient descent is to use a mini-batch size of just 1. That is, given a training input, $x$, we update our weights and biases according to the rules $w_k→w^′_k=w_k−η∂C_x/∂w_k$ and $b_l→b^′_l=b_l−η∂C_x/∂b_l$. Then we choose another training input, and update the weights and biases again. And so on, repeatedly. This procedure is known as online, on-line, or incremental learning. In online learning, a neural network learns from just one training input at a time (just as human beings do). Name one advantage and one disadvantage of online learning, compared to stochastic gradient descent with a mini-batch size of, say, 20.
+
+> When compared to a stochastic gradient descent of batch size 20, one advantage of online learning is that the weights and biases will adapt quickly to new data. This is useful when training on a stream of new data, i.e. real-time applications of DL.
+> A disadvantage is that the model is prone to overfitting, given that the training is happening on single data points. Particularly, if data is noisy, a generalizable model might be hard to produce. Furthermore, training with 1-sized batches require frequent updates to the model's parameters, which is loathsome.
+
+## Implementing the network
+
+**VII**. Write out Equation (22) in component form, and verify that it gives the same result as the rule (4) for computing the output of a sigmoid neuron.
+
+Equation 22: $a^′ = \sigma(wa+b)$
+
+Equation 4: $\frac{1}{1+exp(-\Sigma_j w_j x_j-b)}$
+
+> We can rewrite Equation 22 in component form as follows:
+> $$a^′_i = \sigma(\Sigma_j w_{ij} a_j + b_i)$$
+> where $i$ is the output of a neuron and $j$ is the input neuron, $w_{ij}$ is the weight connecting the $i$-th to the $j$-th neuron, $a_j$ is the activation of the $j$-th input neuron, and $b_i$ is the bias for the $i$-th output neuron. Since we know that $\sigma(x)=1/1+e^{-z}$, we get:
+> $$a^′_i = \frac{1}{(1+e^{\Sigma_j w_{ij} a_j - b_i)}}$$
+> which is equivalent to Equation 4.
