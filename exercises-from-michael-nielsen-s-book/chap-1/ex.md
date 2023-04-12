@@ -62,7 +62,7 @@
 > 0 & 1 & 1 & 1 \\
 > 1 & 0 & 0 & 0 \\
 > 1 & 0 & 0 & 1 \\
-> 
+>
 > \end{bmatrix}
 > $$
 >
@@ -118,3 +118,5 @@ Equation 4: $\frac{1}{1+exp(-\Sigma_j w_j x_j-b)}$
 > where $i$ is the output of a neuron and $j$ is the input neuron, $w_{ij}$ is the weight connecting the $i$-th to the $j$-th neuron, $a_j$ is the activation of the $j$-th input neuron, and $b_i$ is the bias for the $i$-th output neuron. Since we know that $\sigma(x)=1/1+e^{-z}$, we get:
 > $$a^′_i = \frac{1}{(1+e^{\Sigma_j w_{ij} a_j - b_i)}}$$
 > which is equivalent to Equation 4.
+
+**VIII**. Try creating a network with just two layers - an input and an output layer, no hidden layer - with 784 and 10 neurons, respectively. Train the network using stochastic gradient descent. What classification accuracy can you achieve?
